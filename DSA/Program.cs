@@ -26,6 +26,8 @@ namespace DSA
             root.leftChild = new Node(2);
             root.rightChild = new Node(3);
 
+            root.rightChild.rightChild = new Node(6);
+
             root.leftChild.leftChild = new Node(4);
             root.leftChild.rightChild = new Node(5);
 
@@ -41,6 +43,8 @@ namespace DSA
             Console.WriteLine("Post Order Traversal");
             TreeTraversal.PostOrderTraversal(root);
 
+            Console.WriteLine("Level Order Traversal");
+            TreeTraversal.LevelOrderTraversal(root);
             Console.Read();
         }
     }

@@ -59,5 +59,36 @@ namespace DSA
                 }
             }
         }
+
+        public static void LevelOrderTraversal(Node root)
+        {
+            if (root == null)
+                return;
+
+            List<Node> list = new List<Node>();
+            list.Add(root);
+            while(list.Count() > 0)
+            {
+                int count = list.Count();
+                while (count > 0)
+                {
+                    var ele = list.ElementAt(0);
+                    list.RemoveAt(0);
+                    Console.Write(ele.data + ",");
+                    if (ele.leftChild != null)
+                    {
+                        list.Add(ele.leftChild);
+                    }
+
+                    if (ele.rightChild != null)
+                    {
+                        list.Add(ele.rightChild);
+                    }
+
+                    count--;
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }
