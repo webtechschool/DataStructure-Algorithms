@@ -64,6 +64,17 @@ namespace DSA
             var height = TreeOperation.GetHeight(root, 0);
             Console.WriteLine($"The Height Of The Tree Is {height}");
 
+            Node leftvIewTree = new Node(8);
+            leftvIewTree.leftChild = new Node(5);
+            leftvIewTree.rightChild = new Node(4);
+            leftvIewTree.rightChild.leftChild = new Node(2);
+            leftvIewTree.rightChild.rightChild = new Node(1);
+            leftvIewTree.rightChild.leftChild.leftChild = new Node(3);
+            leftvIewTree.rightChild.rightChild.leftChild = new Node(3);
+
+            Console.WriteLine("Left View Of Binary Tree");
+            TreeOperation.LeftViewOfTree(leftvIewTree);
+
             Console.Read();
         }
     }

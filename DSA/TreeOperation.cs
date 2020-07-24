@@ -53,6 +53,43 @@ namespace DSA
             return leftHeight > rightHeight ? leftHeight : rightHeight;
         }
 
+        public static void LeftViewOfTree(Node root)
+        {
+            if (root == null)
+                return;
+
+            List<Node> queue = new List<Node>();
+            queue.Add(root);
+
+            while(queue.Count() > 0)
+            {
+                int count = queue.Count();
+                int counter = 0;
+                while(count > 0)
+                {
+                    var ele = queue.ElementAt(0);
+                    if(counter == 0)
+                    {
+                        Console.WriteLine(ele.data);
+                    }
+                    counter++;
+                    queue.RemoveAt(0);
+
+                    if (ele.leftChild != null)
+                    {
+                        queue.Add(ele.leftChild);
+                    }
+                    if (ele.rightChild != null)
+                    {
+                        queue.Add(ele.rightChild);
+                    }
+
+
+                    count--;
+                }
+            }
+        }
+
         public class obj
         {
             public Node Node;
