@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DSA.LinkedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace DSA
         }
     }
     class Program
-    {
+    {        
         static void Main(string[] args)
         {
            
@@ -75,6 +76,36 @@ namespace DSA
             Console.WriteLine("Left View Of Binary Tree");
             TreeOperation.LeftViewOfTree(leftvIewTree);
 
+            ListNode head = new ListNode(8);
+            head.Next = new ListNode(6);
+            head.Next.Next = new ListNode(5);
+            head.Next.Next.Next = new ListNode(7);
+
+            
+
+            Console.WriteLine("The Linked List is before:");
+            ListOperation.DisplayList(head);
+
+            ListNode nodeTobeDeleted = head.Next;
+            ListOperation.DeleteWithOutHeadPointer(nodeTobeDeleted);
+            Console.WriteLine("The Linked List is After Deletion:");
+            ListOperation.DisplayList(head);
+            ListNode reverseList = ListOperation.ReverseList(head);
+            Console.WriteLine("The Linked List is After Reversal:");
+            ListOperation.DisplayList(reverseList);
+
+
+            head = ListOperation.InsertAtBeginning(head, 2);
+            Console.WriteLine("The Linked List is after insertion at beginning:");
+            ListOperation.DisplayList(head);
+            
+            head = ListOperation.InsertAtEnd(head, 10);
+            Console.WriteLine("The Linked List is after insertion at end:");
+            ListOperation.DisplayList(head);
+
+            Console.WriteLine("The Linked List is after insertion at after node 6:");
+            head = ListOperation.InsertAfterNode(head, 6, 9);
+            ListOperation.DisplayList(head);
             Console.Read();
         }
     }
