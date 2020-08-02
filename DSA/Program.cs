@@ -68,13 +68,25 @@ namespace DSA
             Node leftvIewTree = new Node(8);
             leftvIewTree.leftChild = new Node(5);
             leftvIewTree.rightChild = new Node(4);
+            leftvIewTree.leftChild.leftChild = new Node(3);
             leftvIewTree.rightChild.leftChild = new Node(2);
             leftvIewTree.rightChild.rightChild = new Node(1);
-            leftvIewTree.rightChild.leftChild.leftChild = new Node(3);
-            leftvIewTree.rightChild.rightChild.leftChild = new Node(3);
+            leftvIewTree.rightChild.rightChild.rightChild = new Node(9);
 
             Console.WriteLine("Left View Of Binary Tree");
             TreeOperation.LeftViewOfTree(leftvIewTree);
+
+            Node RightViewTree = new Node(8);
+            RightViewTree.leftChild = new Node(5);
+            RightViewTree.rightChild = new Node(4);
+            RightViewTree.leftChild.leftChild = new Node(3);
+            RightViewTree.rightChild.leftChild = new Node(2);
+            RightViewTree.rightChild.rightChild = new Node(1);
+            RightViewTree.rightChild.rightChild.rightChild = new Node(9);
+
+            Console.WriteLine("Right View Of Binary Tree: ");
+            TreeOperation.RightViewOfTree(RightViewTree);
+
 
             ListNode head = new ListNode(8);
             head.Next = new ListNode(6);

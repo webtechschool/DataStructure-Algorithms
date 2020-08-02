@@ -90,6 +90,37 @@ namespace DSA
             }
         }
 
+        public static void RightViewOfTree(Node root)
+        {
+            if (root == null)
+                return;
+
+            List<Node> queue = new List<Node>();
+            queue.Add(root);
+            while(queue.Count() > 0)
+            {
+                int count = queue.Count;
+                while(count > 0)
+                {
+                    var ele = queue.ElementAt(0);
+                    queue.RemoveAt(0);
+
+                    if(ele.leftChild != null)
+                    {
+                        queue.Add(ele.leftChild);
+                    }
+
+                    if(ele.rightChild != null)
+                    {
+                        queue.Add(ele.rightChild);
+                    }
+                    count--;
+                }
+            }
+
+            
+        }
+
         public class obj
         {
             public Node Node;
