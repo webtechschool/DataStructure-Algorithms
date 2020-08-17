@@ -10,7 +10,17 @@ namespace DSA.LinkedList
     {
         public ListInit()
         {
-            ListNode head = null;
+            ListNode head = new ListNode(1);
+            head.Next = new ListNode(2);
+            head.Next.Next = new ListNode(3);
+            head.Next.Next.Next = new ListNode(4);
+            head.Next.Next.Next.Next = new ListNode(5);
+            head.Next.Next.Next.Next.Next = new ListNode(6);
+            head.Next.Next.Next.Next.Next.Next = head.Next.Next;
+
+            var result = ListOperation.IsLoopExist(head);
+            Console.WriteLine("Loop Exist : " + result);
+            ListNode head1 = null;
             Console.WriteLine("The Linked List is before:");
             ListOperation.DisplayList(head);
 

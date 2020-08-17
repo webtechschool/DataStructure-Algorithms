@@ -12,16 +12,16 @@ namespace DSA
     {
         static void Main(string[] args)
         {
-            ListNode head = new ListNode(1);
-            head.Next = new ListNode(2);
-            head.Next.Next = new ListNode(3);
-            head.Next.Next.Next = new ListNode(4);
-            head.Next.Next.Next.Next = new ListNode(5);
-            head.Next.Next.Next.Next.Next = new ListNode(6);
-            head.Next.Next.Next.Next.Next.Next = head.Next.Next;
+            Node root = new Node(1);
+            root.leftChild = new Node(2);
+            root.rightChild = new Node(3);
+            root.leftChild.leftChild = new Node(4);
+            root.leftChild.rightChild = new Node(5);
+            root.rightChild.leftChild = new Node(6);
+            root.rightChild.rightChild = new Node(7);
 
-            var result = ListOperation.IsLoopExist(head);
-            Console.WriteLine("Loop Exist : " + result);
-        }
+            root = TreeOperation.InvertBinaryTree(root);
+            TreeTraversal.LevelOrderTraversal(root);
+       }
     }
 }

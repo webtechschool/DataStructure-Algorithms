@@ -91,5 +91,149 @@ namespace DSA
                 Console.WriteLine();
             }
         }
+
+        public static void VerticalOrderTraversal(Node root)
+        {
+            if (root == null)
+                return;
+            SortedDictionary<int, List<Node>> map = new SortedDictionary<int, List<Node>>();
+
+            List<nodeObj> queue = new List<nodeObj>();
+            queue.Add(new nodeObj() { node = root, index = 0 });
+            
+            while (queue.Count() > 0)
+            {
+                var ele = queue.ElementAt(0);
+                queue.RemoveAt(0);
+
+                if(map.ContainsKey(ele.index))
+                {
+                    map[ele.index].Add(ele.node);
+                }
+                else
+                {
+                    map.Add(ele.index, new List<Node>() { ele.node });
+                }
+                
+                if(ele.node.leftChild != null)
+                {
+                    queue.Add(new nodeObj() { node = ele.node.leftChild, index = ele.index - 1 });
+                }
+
+                if (ele.node.rightChild != null)
+                {
+                    queue.Add(new nodeObj() { node = ele.node.rightChild, index = ele.index + 1 });
+                }
+            }
+
+            foreach(var keys in map.Keys)
+            {
+                var nodes = map[keys];
+                foreach(var node in nodes)
+                {
+                    Console.Write(node.data + ",");
+                }
+
+                Console.WriteLine();
+            }
+
+        }
+
+        public static void TopViewBinaryTree(Node root)
+        {
+            if (root == null)
+                return;
+            SortedDictionary<int, List<Node>> map = new SortedDictionary<int, List<Node>>();
+
+            List<nodeObj> queue = new List<nodeObj>();
+            queue.Add(new nodeObj() { node = root, index = 0 });
+
+            while (queue.Count() > 0)
+            {
+                var ele = queue.ElementAt(0);
+                queue.RemoveAt(0);
+
+                if (map.ContainsKey(ele.index))
+                {
+                    map[ele.index].Add(ele.node);
+                }
+                else
+                {
+                    map.Add(ele.index, new List<Node>() { ele.node });
+                }
+
+                if (ele.node.leftChild != null)
+                {
+                    queue.Add(new nodeObj() { node = ele.node.leftChild, index = ele.index - 1 });
+                }
+
+                if (ele.node.rightChild != null)
+                {
+                    queue.Add(new nodeObj() { node = ele.node.rightChild, index = ele.index + 1 });
+                }
+            }
+
+            foreach (var keys in map.Keys)
+            {
+                var nodes = map[keys];
+                var data = nodes.ElementAt(0).data;
+                Console.Write(data + ",");
+            }
+            Console.WriteLine();
+
+        }
+
+        public static void BottomViewBineryTree(Node root)
+        {
+            if (root == null)
+                return;
+            SortedDictionary<int, List<Node>> map = new SortedDictionary<int, List<Node>>();
+
+            List<nodeObj> queue = new List<nodeObj>();
+            queue.Add(new nodeObj() { node = root, index = 0 });
+
+            while (queue.Count() > 0)
+            {
+                var ele = queue.ElementAt(0);
+                queue.RemoveAt(0);
+
+                if (map.ContainsKey(ele.index))
+                {
+                    map[ele.index].Add(ele.node);
+                }
+                else
+                {
+                    map.Add(ele.index, new List<Node>() { ele.node });
+                }
+
+                if (ele.node.leftChild != null)
+                {
+                    queue.Add(new nodeObj() { node = ele.node.leftChild, index = ele.index - 1 });
+                }
+
+                if (ele.node.rightChild != null)
+                {
+                    queue.Add(new nodeObj() { node = ele.node.rightChild, index = ele.index + 1 });
+                }
+            }
+
+            foreach (var keys in map.Keys)
+            {
+                var nodes = map[keys];
+                var data = nodes.ElementAt(nodes.Count - 1).data;
+                Console.Write(data + ",");               
+            }
+
+            Console.WriteLine();
+
+        }
+
+
+    }
+
+    public class nodeObj
+    {
+        public Node node;
+        public int index;
     }
 }

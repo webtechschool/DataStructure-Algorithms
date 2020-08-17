@@ -122,6 +122,19 @@ namespace DSA
             
         }
 
+        public static Node InvertBinaryTree(Node root)
+        {
+            if (root == null)
+                return root;
+
+            Node temp = root.leftChild;
+            root.leftChild = root.rightChild;
+            root.rightChild = temp;
+            InvertBinaryTree(root.leftChild);
+            InvertBinaryTree(root.rightChild);
+            return root;
+        }
+
         public class obj
         {
             public Node Node;
