@@ -9,6 +9,7 @@ namespace DSA
 {
     public static class TreeOperation
     {
+        static Stack<Node> stack = new Stack<Node>();
         public static bool IsBinarySearchTree(Node root)
         {
             if (root == null)
@@ -133,6 +134,33 @@ namespace DSA
             InvertBinaryTree(root.leftChild);
             InvertBinaryTree(root.rightChild);
             return root;
+        }
+
+        public static void PrintBinaryTreePath(Node root)
+        {
+            if (root == null)
+                return;
+            stack.Push(root);
+            if(root.rightChild == null && root.leftChild == null)
+            {
+                printStack(stack);
+            }
+            PrintBinaryTreePath(root.leftChild);
+            PrintBinaryTreePath(root.rightChild);
+            stack.Pop();
+        }
+
+        private static void printStack(Stack<Node> stack)
+        {
+            StringBuilder builder = new StringBuilder();
+            foreach(var node in stack)
+            {
+                builder.Append(node.data);
+            }
+            string s = string.Join("-", builder.ToString().ToCharArray());
+            var reverse = s.ToCharArray().Reverse();
+            Console.WriteLine(new string(reverse.ToArray()));
+            
         }
 
         public class obj

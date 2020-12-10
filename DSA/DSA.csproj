@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Array\ArrayOperation.cs" />
     <Compile Include="LinkedList\ListInit.cs" />
     <Compile Include="LinkedList\ListNode.cs" />
     <Compile Include="LinkedList\ListOperation.cs" />

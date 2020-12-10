@@ -1,4 +1,5 @@
-﻿using DSA.LinkedList;
+﻿using DSA.Array;
+using DSA.LinkedList;
 using DSA.Trees;
 using System;
 using System.Collections.Generic;
@@ -12,16 +13,20 @@ namespace DSA
     {
         static void Main(string[] args)
         {
-            Node root = new Node(1);
-            root.leftChild = new Node(2);
-            root.rightChild = new Node(3);
-            root.leftChild.leftChild = new Node(4);
-            root.leftChild.rightChild = new Node(5);
-            root.rightChild.leftChild = new Node(6);
-            root.rightChild.rightChild = new Node(7);
+            int[] a1 = new int[] { 1, 2, 3, 7, 5 };
 
-            root = TreeOperation.InvertBinaryTree(root);
-            TreeTraversal.LevelOrderTraversal(root);
-       }
+            int[] a2 = new int[] { 23, 2, 4, 2, 1 };
+
+            var result = ArrayOperation.CheckSubArraySum(a1, 12);
+            Console.WriteLine($"The Sum Value Exists In SubArray : {result}");
+
+            result = ArrayOperation.CheckSubArraySum(a2, 6);
+            Console.WriteLine($"The Sum Value Exists In SubArray : {result}");
+
+            result = ArrayOperation.CheckSubArraySum(a1, 14);
+            Console.WriteLine($"The Sum Value Exists In SubArray : {result}");
+
+            Console.Read();
+        }
     }
 }

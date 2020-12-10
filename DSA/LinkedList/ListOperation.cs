@@ -189,5 +189,55 @@ namespace DSA.LinkedList
             }
             return false;            
         }
+
+        public static ListNode AddTwoNumber(ListNode l1, ListNode l2)
+        {
+            l1 = ListOperation.ReverseList(l1);
+            l2 = ListOperation.ReverseList(l2);
+
+            int carry = 0;
+
+            ListNode result = null;
+            ListNode resultHead = null;
+            while(l1 != null || l2 != null)
+            {
+                int val1 = l1 == null ? 0 : l1.Data;
+                int val2 = l2 == null ? 0 : l2.Data;
+
+                int sum = val1 + val2 + carry;
+                carry = sum > 9 ? sum / 10 : 0;
+                sum = sum % 10;
+
+                if(result == null)
+                {
+                    result = new ListNode(sum);
+                    resultHead = result;
+                }
+                else
+                {
+                    result.Next = new ListNode(sum);
+                    result = result.Next;
+                }
+
+                if(l1 != null)
+                {
+                    l1 = l1.Next;
+                }
+
+                if(l2 != null)
+                {
+                    l2 = l2.Next;
+                }
+            }
+
+            if(carry != 0)
+            {
+                result.Next = new ListNode(carry);
+            }
+
+            return ReverseList(resultHead);
+        }
+
+
     }
 }
